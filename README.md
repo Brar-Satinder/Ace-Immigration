@@ -1,150 +1,94 @@
 # Ace Immigration - Australian Visa Consultation Platform
 
-🍂 **Golden Ace Immigration** - Your trusted partner for Australian visa success
+A modern, responsive website for Australian immigration consultation services built with Next.js, React, and Tailwind CSS.
 
 ## Features
 
-✅ **Visa Types Guide** - Comprehensive information on all Australian visa types
-✅ **Points Calculator** - Assess your eligibility for skilled migration visas
-✅ **Documents Checklist** - Complete list of required documents
-✅ **Consultation Booking** - Book free consultations with immigration experts
-✅ **Responsive Design** - Works on all devices
-✅ **Gold & Black Theme** - Premium and professional design
+- 🏠 **Home Page**: Hero section, features, and visa categories
+- 📊 **Visa Calculator**: Interactive tool to assess visa eligibility
+- 📧 **Contact Page**: Contact form and business information
+- 📱 **Responsive Design**: Fully mobile-optimized
+- 🌙 **Dark Theme**: Modern dark UI with accent colors
+- ⚡ **Performance**: Built with Next.js for optimal performance
 
 ## Tech Stack
 
-- **Frontend**: Next.js 14, React 18, TypeScript
-- **Styling**: Tailwind CSS, Custom CSS
-- **Animations**: Framer Motion
-- **HTTP Client**: Axios
+- **Framework**: Next.js 14
+- **Frontend**: React 18
+- **Styling**: Tailwind CSS
+- **Language**: TypeScript
+- **Deployment**: Netlify
 
-## Installation
+## Getting Started
+
+### Prerequisites
+- Node.js 18+ installed
+
+### Installation
 
 ```bash
-# Clone the repository
-git clone https://github.com/Brar-Satinder/ace-immigration.git
-cd ace-immigration
-
 # Install dependencies
 npm install
 
 # Run development server
 npm run dev
 
-# Open browser
-# http://localhost:3000
-```
-
-## Building for Production
-
-```bash
-# Build the project
+# Build for production
 npm run build
 
 # Start production server
 npm start
 ```
 
-## Deployment
-
-### Vercel (Recommended)
-
-1. Go to https://vercel.com
-2. Connect your GitHub account
-3. Select this repository
-4. Deploy automatically
-
-### Netlify
-
-1. Go to https://netlify.com
-2. Connect your GitHub account
-3. Select this repository
-4. Build command: `npm run build`
-5. Publish directory: `.next`
-6. Deploy
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Project Structure
 
 ```
 ace-immigration/
 ├── app/
-│   ├── layout.tsx          # Root layout
-│   ├── page.tsx            # Homepage
-│   ├── globals.css         # Global styles
-│   ├── visas/
-│   │   └── page.tsx        # Visa types page
-│   ├── calculator/
-│   │   └── page.tsx        # Points calculator
-│   ├── documents/
-│   │   └── page.tsx        # Required documents
-│   └── consultation/
-│       └── page.tsx        # Booking page
+│   ├── page.tsx                 # Home page
+│   ├── layout.tsx               # Root layout
+│   ├── globals.css              # Global styles
+│   ├── visa-calculator/
+│   │   └── page.tsx             # Visa calculator page
+│   └── contact/
+│       └── page.tsx             # Contact page
 ├── components/
-│   ├── Navigation.tsx      # Navigation bar
-│   └── Footer.tsx          # Footer
-├── package.json
-├── tsconfig.json
-├── tailwind.config.js
-└── next.config.js
+│   ├── Navigation.tsx           # Navigation component
+│   └── Footer.tsx               # Footer component
+├── tailwind.config.js           # Tailwind configuration
+├── tsconfig.json                # TypeScript configuration
+├── package.json                 # Dependencies
+└── README.md                    # This file
 ```
 
-## Pages
+## Customization
 
-- **Home** (`/`) - Landing page with overview
-- **Visa Types** (`/visas`) - All visa information
-- **Calculator** (`/calculator`) - Points calculator
-- **Documents** (`/documents`) - Document requirements
-- **Consultation** (`/consultation`) - Book consultation
+### Colors
+Edit the color variables in `tailwind.config.js` and `app/globals.css`:
+- `dark-bg`: Main background color
+- `dark-secondary`: Secondary background
+- `accent-blue`: Primary accent color
 
-## Features Details
+### Content
+- Update company information in `components/Footer.tsx`
+- Modify visa types in `app/page.tsx`
+- Customize form fields in `app/contact/page.tsx`
 
-### Visa Calculator
-- Age points calculation
-- English proficiency scoring
-- Work experience evaluation
-- Qualification assessment
-- Instant eligibility feedback
+## Deployment on Netlify
 
-### Document Checker
-- Personal documents
-- Education credentials
-- Employment history
-- Financial documents
-- Health & character requirements
-- Visa-specific documents
-
-### Consultation Booking
-- Name, email, phone
-- Visa type selection
-- Preferred date & time
-- Custom message
-- Confirmation feedback
-
-## Color Scheme
-
-- **Primary Gold**: #D4AF37
-- **Background**: #0a0a0a (Dark Black)
-- **Secondary**: #1a1a1a
-- **Tertiary**: #2a2a2a
-- **Text**: #ffffff
-
-## Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
+1. Push your code to GitHub
+2. Connect your GitHub repository to Netlify
+3. Configure build settings:
+   - Build command: `npm run build`
+   - Publish directory: `.next`
+4. Deploy!
 
 ## License
 
-MIT License - feel free to use this project for your immigration consulting business
+MIT License - feel free to use this project for your business.
 
-## Contact
+## Support
 
-📧 info@aceimmigration.com
-📞 +61 2 XXXX XXXX
-🕐 Mon-Fri: 9AM-6PM AEST
-
----
-
-**Built with ❤️ by Ace Immigration**
+For issues or questions, please contact info@aceimmigration.com

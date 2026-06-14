@@ -1,151 +1,77 @@
 'use client'
 
 import Link from 'next/link'
-import { motion } from 'framer-motion'
 
 export default function Home() {
   return (
-    <main className="bg-dark-bg">
+    <main className="bg-dark-bg text-white">
       {/* Hero Section */}
-      <section className="min-h-screen bg-gradient-to-br from-dark-bg via-dark-secondary to-dark-bg flex items-center justify-center px-4 pt-20">
-        <div className="text-center max-w-4xl">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="text-6xl md:text-7xl font-bold mb-6">
-              <span className="gold-gradient">♠ ACE</span> Immigration
-            </h1>
-          </motion.div>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl md:text-2xl text-gray-300 mb-8"
-          >
-            Your Trusted Partner for Australian Visa Success
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg text-gray-400 mb-12 max-w-2xl mx-auto"
-          >
-            Expert guidance on all Australian visa types. From skilled migration to family visas, we help you navigate your immigration journey with confidence.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
-            <Link href="/consultation" className="btn-gold text-lg">
-              Book Free Consultation
+      <section className="min-h-screen flex items-center justify-center bg-gradient-to-r from-dark-bg to-dark-secondary">
+        <div className="max-w-6xl mx-auto px-4 py-32 text-center">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-accent-blue">
+            Your Australian Immigration Journey Starts Here
+          </h1>
+          <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+            Expert guidance for Australian visas, permanent residency, and citizenship. Navigate your immigration process with confidence.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/visa-calculator" className="bg-accent-blue hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-bold transition">
+              Start Visa Calculator
             </Link>
-            <Link href="/visas" className="btn-gold-outline text-lg">
-              Explore Visa Types
+            <Link href="/contact" className="border-2 border-accent-blue text-accent-blue hover:bg-accent-blue hover:text-white px-8 py-4 rounded-lg font-bold transition">
+              Contact Us
             </Link>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-20 px-4 bg-dark-secondary">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-12">Why Choose Ace Immigration</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: '📊',
-                title: 'Visa Calculator',
-                description: 'Get instant eligibility assessment for all visa types'
-              },
-              {
-                icon: '📋',
-                title: 'Document Guide',
-                description: 'Complete checklist of required documents for each visa'
-              },
-              {
-                icon: '👨‍💼',
-                title: 'Expert Agents',
-                description: 'One-on-one consultation with experienced immigration agents'
-              },
-              {
-                icon: '⚡',
-                title: 'Fast Processing',
-                description: 'Quick turnaround on document reviews and applications'
-              },
-              {
-                icon: '💯',
-                title: 'Success Rate',
-                description: '95% success rate in visa applications'
-              },
-              {
-                icon: '🌍',
-                title: 'Global Support',
-                description: '24/7 support from anywhere in the world'
-              }
-            ].map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="p-6 bg-dark-tertiary rounded-lg border border-gold/30 hover:border-gold transition"
-              >
-                <div className="text-4xl mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-bold text-gold mb-2">{feature.title}</h3>
-                <p className="text-gray-400">{feature.description}</p>
-              </motion.div>
-            ))}
+      <section className="py-20 bg-dark-secondary">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-16 text-accent-blue">Why Choose Ace Immigration?</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-dark-bg p-8 rounded-lg border border-accent-blue">
+              <div className="text-4xl mb-4 text-accent-blue">👥</div>
+              <h3 className="text-xl font-bold mb-3">Expert Consultants</h3>
+              <p className="text-gray-400">Licensed immigration consultants with 10+ years of experience.</p>
+            </div>
+            <div className="bg-dark-bg p-8 rounded-lg border border-accent-blue">
+              <div className="text-4xl mb-4 text-accent-blue">🌍</div>
+              <h3 className="text-xl font-bold mb-3">Global Experience</h3>
+              <p className="text-gray-400">Successfully assisted 5000+ clients achieve their Australian dreams.</p>
+            </div>
+            <div className="bg-dark-bg p-8 rounded-lg border border-accent-blue">
+              <div className="text-4xl mb-4 text-accent-blue">🔒</div>
+              <h3 className="text-xl font-bold mb-3">100% Confidential</h3>
+              <p className="text-gray-400">Your information is secure and protected at all times.</p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Visa Types Preview */}
-      <section className="py-20 px-4">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-12">Australian Visa Types</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            {[
-              { name: 'Skilled Migration', icon: '🎓' },
-              { name: 'Family Visas', icon: '👨‍👩‍👧‍👦' },
-              { name: 'Business Visas', icon: '💼' },
-              { name: 'Student Visas', icon: '📚' },
-              { name: 'Partner Visas', icon: '💑' },
-              { name: 'Visitor Visas', icon: '✈️' }
-            ].map((visa, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ scale: 1.05 }}
-                className="p-6 bg-gradient-to-r from-dark-secondary to-dark-tertiary rounded-lg border border-gold/20 hover:border-gold transition cursor-pointer"
-              >
-                <div className="text-4xl mb-4">{visa.icon}</div>
-                <h3 className="text-xl font-bold text-gold">{visa.name}</h3>
-              </motion.div>
+      {/* Visa Types Section */}
+      <section className="py-20">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-16 text-accent-blue">Popular Visa Categories</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {['Skilled Migration', 'Work Visa', 'Student Visa', 'Partner Visa'].map((visa) => (
+              <div key={visa} className="bg-dark-secondary p-6 rounded-lg border border-gray-700 hover:border-accent-blue transition">
+                <div className="text-3xl mb-3">✓</div>
+                <h3 className="text-lg font-bold mb-2">{visa}</h3>
+                <p className="text-sm text-gray-400">Comprehensive assessment and support</p>
+              </div>
             ))}
-          </div>
-          <div className="text-center">
-            <Link href="/visas" className="btn-gold text-lg">
-              View All Visa Details
-            </Link>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-dark-secondary">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-6">Ready to Start Your Journey?</h2>
-          <p className="text-xl text-gray-300 mb-8">
-            Book a free consultation with our immigration experts today
-          </p>
-          <Link href="/consultation" className="btn-gold text-lg">
-            Schedule Consultation Now
+      <section className="py-20 bg-dark-secondary">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold mb-6">Ready to Start Your Immigration Journey?</h2>
+          <p className="text-gray-300 mb-8">Get a free consultation with our immigration experts today</p>
+          <Link href="/contact" className="inline-block bg-accent-blue hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-bold transition">
+            Book Free Consultation
           </Link>
         </div>
       </section>

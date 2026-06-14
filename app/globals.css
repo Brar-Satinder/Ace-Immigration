@@ -1,4 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --dark-bg: #0f1419;
+  --dark-secondary: #1a1f2e;
+  --accent-blue: #0ea5e9;
+}
 
 * {
   margin: 0;
@@ -11,86 +19,30 @@ html {
 }
 
 body {
-  background-color: #0a0a0a;
-  color: #ffffff;
-  font-family: 'Inter', sans-serif;
+  background-color: var(--dark-bg);
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
 }
 
-/* Gold accent styles */
-.gold-text {
-  color: #D4AF37;
-}
-
-.gold-border {
-  border-color: #D4AF37;
-}
-
-.gold-bg {
-  background-color: #D4AF37;
-}
-
-/* Gradient effects */
-.gold-gradient {
-  background: linear-gradient(135deg, #D4AF37 0%, #ffd700 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Button styles */
-.btn-gold {
-  background-color: #D4AF37;
-  color: #0a0a0a;
-  padding: 12px 30px;
-  border-radius: 6px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  border: 2px solid #D4AF37;
-  cursor: pointer;
-}
-
-.btn-gold:hover {
-  background-color: transparent;
-  color: #D4AF37;
-  transform: translateY(-2px);
-}
-
-.btn-gold-outline {
-  background-color: transparent;
-  color: #D4AF37;
-  padding: 12px 30px;
-  border-radius: 6px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  border: 2px solid #D4AF37;
-  cursor: pointer;
-}
-
-.btn-gold-outline:hover {
-  background-color: #D4AF37;
-  color: #0a0a0a;
-  transform: translateY(-2px);
-}
-
-/* Smooth transitions */
-a {
-  transition: color 0.3s ease;
-}
-
-/* Scrollbar styling */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #1a1a1a;
+  background: var(--dark-secondary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #D4AF37;
-  border-radius: 5px;
+  background: var(--accent-blue);
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #ffd700;
+  background: #0284c7;
+}
+
+input, textarea, select {
+  font-family: inherit;
 }
