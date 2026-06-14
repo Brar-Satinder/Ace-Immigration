@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0a0a0a;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Gold accent styles */
+.gold-text {
+  color: #D4AF37;
+}
+
+.gold-border {
+  border-color: #D4AF37;
+}
+
+.gold-bg {
+  background-color: #D4AF37;
+}
+
+/* Gradient effects */
+.gold-gradient {
+  background: linear-gradient(135deg, #D4AF37 0%, #ffd700 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Button styles */
+.btn-gold {
+  background-color: #D4AF37;
+  color: #0a0a0a;
+  padding: 12px 30px;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid #D4AF37;
+  cursor: pointer;
+}
+
+.btn-gold:hover {
+  background-color: transparent;
+  color: #D4AF37;
+  transform: translateY(-2px);
+}
+
+.btn-gold-outline {
+  background-color: transparent;
+  color: #D4AF37;
+  padding: 12px 30px;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid #D4AF37;
+  cursor: pointer;
+}
+
+.btn-gold-outline:hover {
+  background-color: #D4AF37;
+  color: #0a0a0a;
+  transform: translateY(-2px);
+}
+
+/* Smooth transitions */
+a {
+  transition: color 0.3s ease;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D4AF37;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ffd700;
+}
