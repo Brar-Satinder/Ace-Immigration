@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ace Immigration - Australian Visa Consultation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --dark-bg: #0f1419;
+            --dark-secondary: #1a1f2e;
+            --accent-blue: #0ea5e9;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: var(--dark-bg);
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+        }
+        .dark-bg { background-color: var(--dark-bg); }
+        .dark-secondary { background-color: var(--dark-secondary); }
+        .accent-blue { color: var(--accent-blue); }
+        .bg-accent-blue { background-color: var(--accent-blue); }
+        .border-accent-blue { border-color: var(--accent-blue); }
+        .hover-accent:hover { color: var(--accent-blue); }
+        .btn-primary {
+            background-color: var(--accent-blue);
+            color: white;
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: inline-block;
+            text-decoration: none;
+            border: none;
+            font-size: 1rem;
+        }
+        .btn-primary:hover {
+            background-color: #0284c7;
+        }
+        .btn-secondary {
+            border: 2px solid var(--accent-blue);
+            color: var(--accent-blue);
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-block;
+            text-decoration: none;
+            background: transparent;
+            font-size: 1rem;
+        }
+        .btn-secondary:hover {
+            background-color: var(--accent-blue);
+            color: white;
+        }
+        nav {
+            background-color: var(--dark-secondary);
+            border-bottom: 2px solid var(--accent-blue);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--accent-blue);
+        }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+        .nav-links a:hover {
+            color: var(--accent-blue);
+        }
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(to right, var(--dark-bg), var(--dark-secondary));
+            padding: 40px 16px;
+        }
+        .hero-content {
+            text-align: center;
+            max-width: 900px;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 24px;
+            color: var(--accent-blue);
+            line-height: 1.2;
+        }
+        .hero p {
+            font-size: 1.25rem;
+            color: #d1d5db;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+        .button-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        section {
+            padding: 80px 16px;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 64px;
+            color: var(--accent-blue);
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+        .feature-card {
+            background-color: var(--dark-bg);
+            padding: 32px;
+            border-radius: 8px;
+            border: 2px solid var(--accent-blue);
+            transition: transform 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        .feature-card h3 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin: 16px 0;
+        }
+        .feature-card p {
+            color: #9ca3af;
+            line-height: 1.6;
+        }
+        .icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+        .visa-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+        .visa-card {
+            background-color: var(--dark-secondary);
+            padding: 24px;
+            border-radius: 8px;
+            border: 1px solid #374151;
+            transition: all 0.3s;
+        }
+        .visa-card:hover {
+            border-color: var(--accent-blue);
+            background-color: var(--dark-bg);
+        }
+        .visa-card h3 {
+            font-weight: bold;
+            margin: 16px 0;
+        }
+        .visa-card p {
+            font-size: 0.875rem;
+            color: #9ca3af;
+        }
+        .features-section {
+            background-color: var(--dark-secondary);
+        }
+        .cta-section {
+            background-color: var(--dark-secondary);
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 24px;
+        }
+        .form-group label {
+            display: block;
+            color: white;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            background-color: var(--dark-bg);
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #374151;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #6b7280;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--accent-blue);
+            outline: none;
+        }
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        footer {
+            background-color: var(--dark-secondary);
+            border-top: 2px solid var(--accent-blue);
+            padding: 48px 16px;
+            color: #9ca3af;
+        }
+        .footer-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+        .footer-section h4 {
+            font-weight: bold;
+            color: white;
+            margin-bottom: 16px;
+        }
+        .footer-section ul {
+            list-style: none;
+        }
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+        .footer-section a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-section a:hover {
+            color: var(--accent-blue);
+        }
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 32px;
+            text-align: center;
+        }
+        .hidden { display: none; }
+        .show { display: block; }
+        .success-message {
+            background-color: #15803d;
+            border: 1px solid #22c55e;
+            color: #86efac;
+            padding: 16px;
+            border-radius: 8px;
+            margin-top: 16px;
+        }
+        .error-message {
+            background-color: #7f1d1d;
+            border: 1px solid #f87171;
+            color: #fca5a5;
+            padding: 16px;
+            border-radius: 8px;
+            margin-top: 16px;
+        }
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .nav-links {
+                display: none;
+            }
+            .button-group {
+                flex-direction: column;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="dark-bg">
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">🏢 Ace Immigration</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#calculator">Visa Calculator</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Your Australian Immigration Journey Starts Here</h1>
+            <p>Expert guidance for Australian visas, permanent residency, and citizenship. Navigate your immigration process with confidence.</p>
+            <div class="button-group">
+                <button class="btn-primary" onclick="smoothScroll('calculator')">Start Visa Calculator</button>
+                <button class="btn-secondary" onclick="smoothScroll('contact')">Contact Us</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="services" class="features-section">
+        <h2 class="section-title">Why Choose Ace Immigration?</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="icon">👥</div>
+                <h3>Expert Consultants</h3>
+                <p>Licensed immigration consultants with 10+ years of experience in Australian immigration law.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">🌍</div>
+                <h3>Global Experience</h3>
+                <p>Successfully assisted 5000+ clients achieve their Australian dreams across all visa categories.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">🔒</div>
+                <h3>100% Confidential</h3>
+                <p>Your information is secure and protected at all times with strict privacy standards.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visa Types Section -->
+    <section>
+        <h2 class="section-title">Popular Visa Categories</h2>
+        <div class="visa-grid">
+            <div class="visa-card">
+                <div class="icon">✓</div>
+                <h3>Skilled Migration</h3>
+                <p>Comprehensive assessment for 189, 190, and 491 visa categories</p>
+            </div>
+            <div class="visa-card">
+                <div class="icon">✓</div>
+                <h3>Work Visa</h3>
+                <p>Support for 482, 494, and other employment-based visas</p>
+            </div>
+            <div class="visa-card">
+                <div class="icon">✓</div>
+                <h3>Student Visa</h3>
+                <p>Guidance for international students applying for subclass 500</p>
+            </div>
+            <div class="visa-card">
+                <div class="icon">✓</div>
+                <h3>Partner Visa</h3>
+                <p>Assistance for partner visa applications (820/801)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visa Calculator Section -->
+    <section id="calculator">
+        <h2 class="section-title">Australian Visa Calculator</h2>
+        <p style="text-align: center; color: #9ca3af; margin-bottom: 32px;">Get an initial assessment of your eligibility</p>
+        <div class="form-container dark-secondary" style="padding: 32px; border-radius: 8px; border: 2px solid var(--accent-blue);">
+            <form onsubmit="calculateScore(event)">
+                <div class="form-group">
+                    <label>Visa Type *</label>
+                    <select id="visaType" required>
+                        <option value="">Select a visa type</option>
+                        <option value="skilled">Skilled Migration (189/190/491)</option>
+                        <option value="work">Work Visa (482/494)</option>
+                        <option value="student">Student Visa (500)</option>
+                        <option value="partner">Partner Visa (820/801)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Age *</label>
+                    <input type="number" id="age" placeholder="Enter your age" min="18" max="120" required>
+                </div>
+                <div class="form-group">
+                    <label>Work Experience (Years) *</label>
+                    <input type="number" id="experience" placeholder="Years of relevant experience" min="0" max="60" required>
+                </div>
+                <div class="form-group">
+                    <label>IELTS Score *</label>
+                    <input type="number" id="ielts" step="0.5" placeholder="e.g., 6.5, 7.0, 8.0" min="0" max="9" required>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%; text-align: center; padding: 12px;">Calculate Score</button>
+            </form>
+            <div id="result" class="hidden" style="margin-top: 32px; padding: 24px; background-color: var(--dark-bg); border-left: 4px solid var(--accent-blue); border-radius: 4px;">
+                <p id="resultText" style="font-size: 1.125rem; line-height: 1.6;"></p>
+            </div>
+        </div>
+        <div style="margin-top: 48px; background-color: var(--dark-secondary); border-radius: 8px; padding: 32px; border-left: 4px solid var(--accent-blue);">
+            <h3 style="color: var(--accent-blue); margin-bottom: 24px; font-size: 1.5rem;">Important Notes</h3>
+            <ul style="color: #d1d5db; line-height: 1.8;">
+                <li style="margin-bottom: 12px;">📌 This is a preliminary assessment only</li>
+                <li style="margin-bottom: 12px;">📌 Actual eligibility depends on multiple factors</li>
+                <li style="margin-bottom: 12px;">📌 Consult with our experts for accurate evaluation</li>
+                <li style="margin-bottom: 12px;">📌 Points requirements vary by visa category and year</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Contact Us</h2>
+        <p style="text-align: center; color: #9ca3af; margin-bottom: 48px;">Get in touch with our immigration experts today</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; margin-bottom: 48px;">
+            <div class="dark-secondary" style="padding: 32px; border-radius: 8px; border: 2px solid var(--accent-blue);">
+                <div class="icon">📧</div>
+                <h3 style="font-weight: bold; color: white; margin-bottom: 8px;">Email</h3>
+                <p style="color: #9ca3af;">info@aceimmigration.com</p>
+            </div>
+            <div class="dark-secondary" style="padding: 32px; border-radius: 8px; border: 2px solid var(--accent-blue);">
+                <div class="icon">📱</div>
+                <h3 style="font-weight: bold; color: white; margin-bottom: 8px;">Phone</h3>
+                <p style="color: #9ca3af;">+61 (0) 2 XXXX XXXX</p>
+            </div>
+            <div class="dark-secondary" style="padding: 32px; border-radius: 8px; border: 2px solid var(--accent-blue);">
+                <div class="icon">📍</div>
+                <h3 style="font-weight: bold; color: white; margin-bottom: 8px;">Office</h3>
+                <p style="color: #9ca3af;">Sydney, Australia</p>
+            </div>
+        </div>
+        <div class="form-container dark-secondary" style="padding: 32px; border-radius: 8px; border: 2px solid var(--accent-blue);">
+            <form onsubmit="submitContactForm(event)">
+                <div class="form-group">
+                    <label>Name *</label>
+                    <input type="text" id="contactName" placeholder="Your full name" required>
+                </div>
+                <div class="form-group">
+                    <label>Email *</label>
+                    <input type="email" id="contactEmail" placeholder="your@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input type="tel" id="contactPhone" placeholder="+61 XXXX XXXX">
+                </div>
+                <div class="form-group">
+                    <label>Message *</label>
+                    <textarea id="contactMessage" rows="5" placeholder="Tell us about your immigration goals..." required></textarea>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%; text-align: center; padding: 12px;">Send Message</button>
+                <div id="contactSuccess" class="success-message hidden" style="margin-top: 16px;">
+                    ✅ Thank you! We'll get back to you within 24 hours.
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2 style="font-size: 2rem; font-weight: bold; margin-bottom: 24px;">Ready to Start Your Immigration Journey?</h2>
+        <p style="color: #d1d5db; margin-bottom: 32px; font-size: 1.125rem;">Get a free consultation with our immigration experts today</p>
+        <button class="btn-primary" onclick="smoothScroll('contact')">Book Free Consultation</button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4 style="color: var(--accent-blue);">🏢 Ace Immigration</h4>
+                <p>Expert Australian immigration consultation services. Your trusted partner in your immigration journey to Australia.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home" onclick="smoothScroll('home')">Home</a></li>
+                    <li><a href="#calculator" onclick="smoothScroll('calculator')">Visa Calculator</a></li>
+                    <li><a href="#services" onclick="smoothScroll('services')">Services</a></li>
+                    <li><a href="#contact" onclick="smoothScroll('contact')">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">Visa Assessment</a></li>
+                    <li><a href="#">Application Support</a></li>
+                    <li><a href="#">Document Preparation</a></li>
+                    <li><a href="#">Expert Consultation</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <ul>
+                    <li>📧 info@aceimmigration.com</li>
+                    <li>📱 +61 (0) 2 XXXX XXXX</li>
+                    <li>📍 Sydney, Australia</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Ace Immigration. All rights reserved. | <a href="#" style="color: #9ca3af;">Privacy Policy</a> | <a href="#" style="color: #9ca3af;">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <script>
+        function smoothScroll(elementId) {
+            const element = document.getElementById(elementId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function calculateScore(event) {
+            event.preventDefault();
+            
+            const visaType = document.getElementById('visaType').value;
+            const age = Number(document.getElementById('age').value);
+            const experience = Number(document.getElementById('experience').value);
+            const ielts = Number(document.getElementById('ielts').value);
+            
+            if (!visaType) {
+                alert('Please select a visa type');
+                return;
+            }
+            
+            let score = 0;
+            let breakdown = '';
+            
+            // Age points
+            if (age >= 25 && age <= 32) {
+                score += 30;
+                breakdown += 'Age (25-32): +30 points\n';
+            } else if (age >= 23 && age < 25) {
+                score += 25;
+                breakdown += 'Age (23-25): +25 points\n';
+            } else if (age > 32 && age <= 39) {
+                score += 25;
+                breakdown += 'Age (33-39): +25 points\n';
+            }
+            
+            // Experience points
+            const expPoints = experience * 5;
+            score += expPoints;
+            breakdown += `Experience (${experience} years): +${expPoints} points\n`;
+            
+            // IELTS points
+            const ieltsPoints = Math.floor(ielts * 10);
+            score += ieltsPoints;
+            breakdown += `IELTS (${ielts}): +${ieltsPoints} points\n\n`;
+            
+            let resultText = '';
+            if (score >= 65) {
+                resultText = `✅ EXCELLENT! Your score: ${score}\n\n${breakdown}You likely qualify for skilled migration. Contact us for a detailed assessment.`;
+            } else if (score >= 50) {
+                resultText = `⚠️ GOOD PROSPECTS! Your score: ${score}\n\n${breakdown}Consider improving your IELTS score or gaining more work experience. Our consultants can help you prepare.`;
+            } else {
+                resultText = `❌ SCORE: ${score}\n\n${breakdown}Recommendations: Focus on improving your IELTS score or gain more relevant work experience. Let's discuss your options.`;
+            }
+            
+            document.getElementById('resultText').textContent = resultText;
+            document.getElementById('result').classList.remove('hidden');
+            document.getElementById('result').classList.add('show');
+        }
+        
+        function submitContactForm(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('contactName').value;
+            const email = document.getElementById('contactEmail').value;
+            const phone = document.getElementById('contactPhone').value;
+            const message = document.getElementById('contactMessage').value;
+            
+            if (!name || !email || !message) {
+                alert('Please fill in all required fields');
+                return;
+            }
+            
+            // Clear form
+            document.getElementById('contactName').value = '';
+            document.getElementById('contactEmail').value = '';
+            document.getElementById('contactPhone').value = '';
+            document.getElementById('contactMessage').value = '';
+            
+            // Show success message
+            const successMsg = document.getElementById('contactSuccess');
+            successMsg.classList.remove('hidden');
+            successMsg.classList.add('show');
+            
+            // Hide after 5 seconds
+            setTimeout(() => {
+                successMsg.classList.add('hidden');
+                successMsg.classList.remove('show');
+            }, 5000);
+            
+            // In production, send data to backend
+            console.log('Form submitted:', { name, email, phone, message });
+        }
+    </script>
+
+</body>
+</html>
